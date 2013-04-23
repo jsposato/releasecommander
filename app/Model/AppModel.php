@@ -32,4 +32,8 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+	function beforeFind($queryData) {
+	    // force no recursion beyond single model
+	    $queryData['recursive'] = -1;
+	}
 }

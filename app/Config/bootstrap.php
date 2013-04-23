@@ -117,3 +117,7 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+// load the main config file for every web page of the applictaion
+require_once(APP.'Config'.DS.'constants.php');
+

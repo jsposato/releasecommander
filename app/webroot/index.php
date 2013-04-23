@@ -85,7 +85,7 @@ if (php_sapi_name() == 'cli-server') {
 }
 
 // Added this to allow the correction of the shared CakePHP libraries
-define('CAKE_CORE_INCLUDE_PATH', DS . 'var' . DS . 'cake_2.3.2' . DS . 'lib');
+define('CAKE_CORE_INCLUDE_PATH', DS . 'var' . DS . 'lib' . DS . 'cakephp_2.3.2' . DS . 'lib');
 
 if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 	if (function_exists('ini_set')) {

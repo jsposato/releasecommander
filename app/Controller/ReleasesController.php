@@ -26,7 +26,7 @@ class ReleasesController extends AppController {
 		// set the fields we want to display and the condtions for the query
 		$fields = array('Release.id', 'Release.name', 'Release.scheduled_date','LuEnvironment.name','LuStatus.name','User.username');
 		//$conditions = array('Release.lu_status_id' => '<> 3');
-		$conditions = array('NOT' => array('Release.lu_status_id' => array(3)));
+		$conditions = array('NOT' => array('Release.lu_status_id' => array(COMPLETED)));
 
 		$this->paginate = array(
 			'limit' => RESULTS_PER_PAGE,
@@ -34,7 +34,7 @@ class ReleasesController extends AppController {
 			'order' => 'Release.scheduled_date ASC',
 			'fields' => $fields,
 			'conditions' => $conditions,
-			'contain' => array('LuEnvironment','LuStatus','User')
+			'contain' => array('LuEnvironment.name','LuStatus.name','User.username')
 			);
 		$this->set('releases', $this->paginate());
 		
